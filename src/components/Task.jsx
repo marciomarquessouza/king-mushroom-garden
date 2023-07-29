@@ -9,14 +9,14 @@ export default function Task({
     <div className={`list-item ${state}`}>
       <label
         htmlFor="checked"
-        aria-label={`archivedTask-${id}`}
+        aria-label={`archiveTask-${id}`}
         className="checkbox"
       >
         <input
           type="checkbox"
           disabled={true}
           name="checked"
-          id={`archivedTask-${id}`}
+          id={`archiveTask-${id}`}
           checked={state === "TASK_ARCHIVED"}
         />
         <span className="checkbox-custom" onClick={() => onArchiveTask(id)} />
@@ -29,10 +29,11 @@ export default function Task({
           readOnly={true}
           name="title"
           placeholder="Input title"
+          style={{ textOverflow: "ellipsis" }}
         />
       </label>
 
-      {state === "TASK_ARCHIVED" && (
+      {state !== "TASK_ARCHIVED" && (
         <button
           className="pin-button"
           onClick={() => onPinTask(id)}

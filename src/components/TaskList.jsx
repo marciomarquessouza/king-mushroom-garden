@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 
 import Task from "./Task";
 import { useSelector, useDispatch } from "react-redux";
+import { updateTaskState } from "../lib/store";
 
 export default function TaskList() {
   const tasks = useSelector((state) => {
